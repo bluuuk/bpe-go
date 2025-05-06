@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-var _ BPEProcessor = &TiktokenProcessor{}
+var _ BPEProcessor = &RegexTiktokenProcessor{}
 
 type RegexTiktokenProcessor struct {
 	tkp   *TiktokenProcessor

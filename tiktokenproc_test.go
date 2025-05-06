@@ -5,6 +5,42 @@ import (
 	"testing"
 )
 
+func FuzzTiktokenProcessor_EncodeDecodeFuzz(f *testing.F) {
+	// we do not replace errorneus unicode sequences
+	proc, err := NewTiktokenProcessor(
+		"testdata/cl100k_base.tiktoken",
+		[]byte{},
+		true,
+		map[Token]Rank{},
+		[]Token{},
+	)
+
+	// assert that there is no errro
+	if err != nil {
+		f.Errorf("NewTiktokenProcessor() error = %v", err)
+		return
+	}
+
+	f.Add("൦ሖᏄᬄₕ𑅢󿿽")
+	f.Fuzz(func(t *testing.T, args string) {
+		ranks, err := proc.Encode(args)
+		if err != nil {
+			t.Errorf("TiktokenProcessor.Encode() error = %v", err)
+			return
+		}
+		compare, err := proc.Decode(ranks)
+		if err != nil {
+			t.Errorf("TiktokenProcessor.Decode() error = %v", err)
+			return
+		}
+		if compare != args {
+			t.Errorf("Expected %s, got %s", args, compare)
+			return
+		}
+
+	})
+}
+
 func TestTiktokenProcessor_EncodeDecode(t *testing.T) {
 	proc, err := NewTiktokenProcessor(
 		"testdata/cl100k_base.tiktoken",
