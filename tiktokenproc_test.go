@@ -7,7 +7,7 @@ import (
 
 func TestTiktokenProcessor_EncodeDecode(t *testing.T) {
 	proc, err := NewTiktokenProcessor(
-		"cl100k_base.tiktoken",
+		"testdata/cl100k_base.tiktoken",
 		[]byte{0xEF, 0xBF, 0xBD},
 		true,
 		map[Token]Rank{},
@@ -92,7 +92,7 @@ func TestTiktokenProcessor_EncodeDecode(t *testing.T) {
 
 func TestTiktokenProcessor_Encode(t *testing.T) {
 	proc, err := NewTiktokenProcessor(
-		"cl100k_base.tiktoken",
+		"testdata/cl100k_base.tiktoken",
 		[]byte{0xEF, 0xBF, 0xBD},
 		true,
 		map[Token]Rank{},
@@ -160,7 +160,7 @@ func TestTiktokenProcessor_EncodeSpecialTokens(t *testing.T) {
 			name: "CL100k non allowed special token",
 			field: func() *TiktokenProcessor {
 				proc, err := NewTiktokenProcessor(
-					"cl100k_base.tiktoken",
+					"testdata/cl100k_base.tiktoken",
 					[]byte{0xEF, 0xBF, 0xBD},
 					true,
 					map[Token]Rank{"<|SYSTEM|>": Rank(1 << 62)},
@@ -179,7 +179,7 @@ func TestTiktokenProcessor_EncodeSpecialTokens(t *testing.T) {
 			name: "CL100k allowed special token",
 			field: func() *TiktokenProcessor {
 				proc, err := NewTiktokenProcessor(
-					"cl100k_base.tiktoken",
+					"testdata/cl100k_base.tiktoken",
 					[]byte{0xEF, 0xBF, 0xBD},
 					true,
 					map[Token]Rank{"<|SYSTEM|>": Rank(1 << 62)},
@@ -198,7 +198,7 @@ func TestTiktokenProcessor_EncodeSpecialTokens(t *testing.T) {
 			name: "CL100k multiple allowed special token with normal tokens",
 			field: func() *TiktokenProcessor {
 				proc, err := NewTiktokenProcessor(
-					"cl100k_base.tiktoken",
+					"testdata/cl100k_base.tiktoken",
 					[]byte{0xEF, 0xBF, 0xBD},
 					true,
 					map[Token]Rank{
@@ -243,7 +243,7 @@ func TestTiktokenProcessor_DecodeSpecialTokens(t *testing.T) {
 			name: "CL100k emits special token",
 			field: func() *TiktokenProcessor {
 				proc, err := NewTiktokenProcessor(
-					"cl100k_base.tiktoken",
+					"testdata/cl100k_base.tiktoken",
 					[]byte{0xEF, 0xBF, 0xBD},
 					true,
 					map[Token]Rank{"<|SYSTEM|>": Rank(1 << 62)},

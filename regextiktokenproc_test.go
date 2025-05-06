@@ -7,7 +7,7 @@ import (
 
 func TestRegexTiktokenProcessor_EncodeDecode(t *testing.T) {
 	proc, err := NewTiktokenProcessor(
-		"cl100k_base.tiktoken",
+		"testdata/cl100k_base.tiktoken",
 		[]byte{0xEF, 0xBF, 0xBD},
 		true,
 		map[Token]Rank{},
@@ -20,7 +20,7 @@ func TestRegexTiktokenProcessor_EncodeDecode(t *testing.T) {
 	}
 
 	procRegex, err := NewRegexTiktokenProcessor(
-		"cl100k_base.tiktoken",
+		"testdata/cl100k_base.tiktoken",
 		[]byte{0xEF, 0xBF, 0xBD},
 		true,
 		map[Token]Rank{},
