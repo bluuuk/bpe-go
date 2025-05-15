@@ -3,10 +3,10 @@
 A Go implementation of Byte Pair Encoding (BPE), inspired by [Andrej Karpathy's](https://www.youtube.com/watch?v=zduSFxRajkE) tutorial.  Support the `tiktoken` file format from [OpenAI](https://github.com/openai/tiktoken). You can fetch pretrained encodings directly from [OpenAI's github](https://github.com/openai/tiktoken/blob/main/tiktoken_ext/openai_public.py) 📦.
 
 # ✨ Features
-	-	🔤 Tokenizes arbitrary byte sequences (not just text!)
-	-	🧩 Special token support with whitelisting
-	-	🧪 Regex-based input splitting
-	-	⚠️ Not a drop-in replacement for OpenAI’s tokenizer
+- 🔤 Tokenizes arbitrary byte sequences (not just text!)
+- 🧩 Special token support with whitelisting
+- 🧪 Regex-based input splitting
+- ⚠️ Not a drop-in replacement for OpenAI’s tokenizer
 
 # 🗂️ Project Structure
 
@@ -23,10 +23,10 @@ A Go implementation of Byte Pair Encoding (BPE), inspired by [Andrej Karpathy's]
 ```
 
 # 💡 Key Takeaways
-	-	🧪 Fuzz testing in Go is powerful — used to test `decode(encode(x)) == x` across edge cases
-	-	🌐 UTF-8 is full of surprises — beware of multi-byte characters
-	-	🛠️ Byte slice manipulation in Go can be... tricky & annoying😅
-    -   🔍 Go’s regex capabilities are fundamentally different from Python’s 🐍 — beware of surprises!
+- 🧪 Fuzz testing in Go is powerful — used to test `decode(encode(x)) == x` across edge cases
+- 🌐 UTF-8 is full of surprises — beware of multi-byte characters
+- 🛠️ Byte slice manipulation in Go can be... tricky & annoying😅
+-   🔍 Go’s regex capabilities are fundamentally different from Python’s 🐍 — beware of surprises!
 
 # 📄 License
 
